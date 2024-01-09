@@ -17,14 +17,21 @@ class offset_env():
                      c=0.25, S0=2.5, R=5, pen=2.5, N=51):
         
         self.T=T
+         # trading friction
         self.sigma = sigma
         self.kappa = kappa
+        # impulse to generation 
         self.eta = eta
+        # generation capacity
         self.xi = xi
+        # cost of generation
         self.c = c
         self.S0 = S0
+        # terminal inventory requirement
         self.R = R 
+        # terminal penalty
         self.pen = pen
+        # inventory and trade rate limits
         self.X_max = 1.5 * R
         self.nu_max = 100.0
         

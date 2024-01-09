@@ -294,7 +294,7 @@ class DDPG():
             self.Update_Q(n_iter=n_iter_Q, 
                           mini_batch_size=mini_batch_size, 
                           epsilon=epsilon)
-            
+            # pdb.set_trace()
             self.Update_pi(n_iter=n_iter_pi, 
                            mini_batch_size=mini_batch_size, 
                            epsilon=epsilon)
