@@ -18,8 +18,8 @@ env = offset_env.offset_env(T=1/12, sigma=0.5, kappa=0.03, eta = 0.05, xi=0.1,
 
 ddpg = DDPG.DDPG(env,
             gamma = 0.999, 
-            lr=5e-5,
+            lr=5e-4,
             name="test" )
  
 #%%    
-ddpg.train(n_iter = 3000, n_plot=200, n_iter_Q=5, n_iter_pi=5)
+ddpg.train(n_iter = 10000, n_plot=1000, n_iter_Q=5, n_iter_pi=5)

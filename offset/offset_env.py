@@ -46,7 +46,7 @@ class offset_env():
         
         return t0, S0, X0
       
-    def step(self, y, a):
+    def step(self, y, a, flag = 1):
         
         mini_batch_size = y.shape[0]
         
@@ -70,7 +70,7 @@ class offset_env():
         
         # Reward
         r = -( y[:,1] * nu *self.dt \
-              + 0.5 * self.kappa * nu**2 * self.dt \
+              + (0.5 * self.kappa * nu**2 * self.dt) * flag \
                   + self.c * G \
                       + self.pen * (torch.abs(yp[:,0]-self.T)<1e-8).int() * torch.maximum(self.R - yp[:,2], torch.tensor(0)))
         

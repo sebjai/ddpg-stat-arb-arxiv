@@ -372,7 +372,7 @@ class DDPG():
             a[:,:,k] = self.pi['net'](self.normalize(Y, 'state'))
 
             # step in environment
-            Y_p, r[:,k] = self.env.step(Y, a[:,:,k])
+            Y_p, r[:,k] = self.env.step(Y, a[:,:,k], flag = 0)
         
             # update subsequent state and inventory
             S[:, k+1] = Y_p[:,1]
@@ -476,7 +476,7 @@ class DDPG():
             plt.show()
         
         plot(0, 
-             np.linspace(-self.env.nu_max/2, self.env.nu_max/2, 21), 
+             np.linspace(-self.env.nu_max, self.env.nu_max, 21), 
              "Trade Rate Heatmap over Time")
         plot(1, 
              np.linspace(0,1,21),
